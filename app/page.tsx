@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+import SearchItem from "@/components/SearchItem";
 import Image from "next/image";
 import left from "../public/hero-left.png";
 import right from "../public/hero-right.png";
@@ -19,13 +19,7 @@ export default function Home() {
           Search high-resolution images from Unspalsh
         </h3>
 
-        <div className="flex  w-full max-w-[480px] md:max-w-[520px]  lg:max-w-[540ppx]">
-          <Input
-            type="search"
-            placeholder="Enter your Keywords"
-            className=" h-14 p-2 mt-6 border-2 border-gray-200 rounded-lg"
-          />
-        </div>
+        <SearchItem />
       </div>
 
       <Image
