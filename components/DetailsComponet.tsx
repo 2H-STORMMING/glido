@@ -3,31 +3,13 @@ import { Button } from "./ui/button";
 import { Download, Plus } from "lucide-react";
 import fileDownload from "js-file-download";
 import CollectionList from "./CollectionList";
+import DownloadList from "./DownloadList";
 
 type DetailsComponetProps = {
   item: any;
 };
 
 function DetailsComponet({ item }: DetailsComponetProps) {
-  const handleDownload = async (url: string, filename: string) => {
-    if (!url) {
-      return;
-    }
-    try {
-      const res = await fetch(url, {
-        headers: {
-          Authorization: `Client-ID ${process.env.UNSPLASH_ACESS_KEY}`,
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        },
-      });
-      const blob = await res.blob();
-      const image = await fileDownload(blob, filename);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div>
       <div className="mt-10 px-4 ">
@@ -45,15 +27,7 @@ function DetailsComponet({ item }: DetailsComponetProps) {
           <Plus color="black" />
           <span className="text-black">Add to collection</span>
         </Button>
-        <Button
-          className="bg-[#E5E7EB] gap-4 hover:cursor-pointer"
-          onClick={() => {
-            handleDownload(item.links.download, item.slug + ".jpg");
-          }}
-        >
-          <Download color="black" />
-          <span className="text-black">Download</span>
-        </Button>
+        <DownloadList urls={item.urls} />
       </div>
       <div className="mt-4">
         <h1 className="text-xl font-bold ">Collections</h1>

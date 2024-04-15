@@ -2,8 +2,9 @@ import SearchItem from "@/components/SearchItem";
 import Image from "next/image";
 import left from "../public/hero-left.png";
 import right from "../public/hero-right.png";
+import { save } from "../mongodb/connect";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex  items-center justify-between mt-40">
       <Image

@@ -15,10 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="">
+    <>
       <Image src={gradient} alt="gradient" className="h-20 mb-10" />
       <NavBarSearch />
       <Provider>{children}</Provider>
-    </body>
+    </>
   );
 }
